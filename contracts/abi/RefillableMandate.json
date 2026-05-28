@@ -1,0 +1,531 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_mandate",
+        "type": "address",
+        "internalType": "contract Mandate"
+      },
+      {
+        "name": "_revocation",
+        "type": "address",
+        "internalType": "contract Revocation"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "createRefillableMandate",
+    "inputs": [
+      {
+        "name": "holder",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "activeMandateCaveats",
+        "type": "tuple[]",
+        "internalType": "struct Caveats.Caveat[]",
+        "components": [
+          {
+            "name": "caveatType",
+            "type": "bytes4",
+            "internalType": "bytes4"
+          },
+          {
+            "name": "parameters",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "schemaVersion",
+            "type": "uint16",
+            "internalType": "uint16"
+          }
+        ]
+      },
+      {
+        "name": "terms",
+        "type": "tuple",
+        "internalType": "struct RefillableMandate.RefillTerms",
+        "components": [
+          {
+            "name": "totalCap",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "perRefillAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "refillThreshold",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "minRefillInterval",
+            "type": "uint64",
+            "internalType": "uint64"
+          }
+        ]
+      },
+      {
+        "name": "userNonce",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "activeMandateId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getCaveatTemplate",
+    "inputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct Caveats.Caveat[]",
+        "components": [
+          {
+            "name": "caveatType",
+            "type": "bytes4",
+            "internalType": "bytes4"
+          },
+          {
+            "name": "parameters",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "schemaVersion",
+            "type": "uint16",
+            "internalType": "uint16"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getRefillStatus",
+    "inputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct RefillableMandate.RefillPolicy",
+        "components": [
+          {
+            "name": "user",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "holder",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "totalCap",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalRefilled",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "perRefillAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "refillThreshold",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "minRefillInterval",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "lastRefillTimestamp",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "activeMandateId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "revoked",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "mandate",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract Mandate"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "revocation",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract Revocation"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "revokeRefillPolicy",
+    "inputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "triggerRefill",
+    "inputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "newActiveMandateId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "usedNonces",
+    "inputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "RefillExecuted",
+    "inputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "oldActiveMandateId",
+        "type": "bytes32",
+        "indexed": false,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "newActiveMandateId",
+        "type": "bytes32",
+        "indexed": false,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "perRefillAmount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "totalRefilled",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RefillPolicyRevoked",
+    "inputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "by",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RefillableMandateCreated",
+    "inputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "activeMandateId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "holder",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "terms",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct RefillableMandate.RefillTerms",
+        "components": [
+          {
+            "name": "totalCap",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "perRefillAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "refillThreshold",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "minRefillInterval",
+            "type": "uint64",
+            "internalType": "uint64"
+          }
+        ]
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "ActiveMandateNotDepleted",
+    "inputs": [
+      {
+        "name": "remaining",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "refillThreshold",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "AlreadyRevoked",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "HolderZero",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NonceAlreadyUsed",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotPolicyUser",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PerRefillExceedsTotal",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PolicyAlreadyExists",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PolicyRevoked",
+    "inputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "RefillTooSoon",
+    "inputs": [
+      {
+        "name": "nextEligibleAt",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "SpendCapMismatch",
+    "inputs": [
+      {
+        "name": "expected",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "actual",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "SpendCapMissing",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ThresholdExceedsPerRefill",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "TotalCapExceeded",
+    "inputs": [
+      {
+        "name": "totalRefilled",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "perRefillAmount",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "totalCap",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "UnknownPolicy",
+    "inputs": [
+      {
+        "name": "parentAuthId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ZeroRefillAmount",
+    "inputs": []
+  }
+]

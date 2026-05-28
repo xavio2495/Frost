@@ -1,0 +1,44 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "ts",
+          "type": "uint256"
+        }
+      ],
+      "name": "Ping",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "nonce",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ping",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600e575f80fd5b506101a78061001c5f395ff3fe608060405234801561000f575f80fd5b5060043610610034575f3560e01c80635c36b18614610038578063affed0e014610042575b5f80fd5b610040610060565b005b61004a6100b4565b60405161005791906100d1565b60405180910390f35b60015f808282546100719190610117565b925050819055507f2cbdbe00cebef89186c967208065ecaafca1aa8a8971c4ccaa8ac017a9cad9ae5f54426040516100aa92919061014a565b60405180910390a1565b5f5481565b5f819050919050565b6100cb816100b9565b82525050565b5f6020820190506100e45f8301846100c2565b92915050565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52601160045260245ffd5b5f610121826100b9565b915061012c836100b9565b9250828201905080821115610144576101436100ea565b5b92915050565b5f60408201905061015d5f8301856100c2565b61016a60208301846100c2565b939250505056fea2646970667358221220a8a173d01628e2752117315ed803acfb40e0f5c37be7af137e3a5a15e617e6f664736f6c634300081a0033"
+}

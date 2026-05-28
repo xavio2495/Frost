@@ -1,0 +1,14 @@
+{
+  "emitter": "0x56378bcc125ee84d2503983be8a0ed6815d18b83",
+  "ws": "wss://base-sepolia.publicnode.com",
+  "path": "WS fallback (eth_subscribe logs) — Tenderly Web3 Actions not used",
+  "samples": [
+    { "idx": 1, "hash": "0x541c8c03f778ee0552e581eda30173df2a127179e95de6e98f95aad20822645a", "block": 42085914, "sendTs": 1779940110881, "blockTs": 1779940116000, "recvTs": 1779940113021, "recvSendMs": 2140 },
+    { "idx": 2, "hash": "0xe2fcad5c5246cb3fe56a5713cd14ede59b4b5ad256f7f139ea7c17ae9d7d1caf", "block": 42085920, "sendTs": 1779940121612, "blockTs": 1779940128000, "recvTs": 1779940124984, "recvSendMs": 3372 },
+    { "idx": 3, "hash": "0xa474fb558613e7f0333f0bb3ee444a53cc8ca6a3fa0ca0f3af4bf7f492db78a5", "block": 42085926, "sendTs": 1779940132924, "blockTs": 1779940140000, "recvTs": 1779940136991, "recvSendMs": 4067 },
+    { "idx": 4, "hash": "0x0778317757ef278d8dd641339d16945811249539ed7ab2ba7038186d8af8233a", "block": 42085931, "sendTs": 1779940144958, "blockTs": 1779940150000, "recvTs": 1779940147026, "recvSendMs": 2068 },
+    { "idx": 5, "hash": "0x088e590b299129d04c37a719df4e7251a5312e253cf6a7152c033e893f830693", "block": 42085937, "sendTs": 1779940155765, "blockTs": 1779940162000, "recvTs": 1779940159000, "recvSendMs": 3235 }
+  ],
+  "medianRecvSendMs": 3235,
+  "rangeRecvSendMs": [2068, 4067]
+}

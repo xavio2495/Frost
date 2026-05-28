@@ -1,0 +1,24 @@
+{
+  "name": "frost-spikes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "spike:1": "tsx 01-venice-mempool/run.ts",
+    "spike:2": "tsx 02-venice-rate-limit/run.ts",
+    "spike:3": "tsx 03-venice-x402-mm-smart-accts/run.ts",
+    "spike:4": "tsx 04-event-webhook-latency/run.ts",
+    "spike:6": "tsx 06-base-sepolia-usdc-address/run.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "viem": "^2.21.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.5.13",
+    "solc": "^0.8.26",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
